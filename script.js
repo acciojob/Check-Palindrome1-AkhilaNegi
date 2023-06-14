@@ -1,17 +1,20 @@
-function isPalindrome(s) {
-  // Remove non-alphanumeric characters and convert to lowercase
-  const formattedString = s.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+function checkPalindrome() {
+  const inputString = document.getElementById('inputString').value;
+  const formattedString = inputString.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+  const result = document.getElementById('result');
 
-  // Check if the formatted string is a palindrome
-  for (let i = 0; i < formattedString.length / 2; i++) {
-    if (formattedString[i] !== formattedString[formattedString.length - 1 - i]) {
+  if (isPalindrome(formattedString)) {
+    result.textContent = 'The string is a palindrome.';
+  } else {
+    result.textContent = 'The string is not a palindrome.';
+  }
+}
+
+function isPalindrome(s) {
+  for (let i = 0; i < s.length / 2; i++) {
+    if (s[i] !== s[s.length - 1 - i]) {
       return false;
     }
   }
-
   return true;
 }
-
-// Example usage
-const input = "race a car";
-console.log(isPalindrome(input)); // Output: false
