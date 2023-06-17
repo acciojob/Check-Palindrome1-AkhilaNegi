@@ -1,20 +1,16 @@
-function checkPalindrome() {
-  const inputString = document.getElementById('inputString').value;
-  const formattedString = inputString.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
-  const result = document.getElementById('result');
+// complete the given function
 
-  if (isPalindrome(formattedString)) {
-    result.textContent = 'The string is a palindrome.';
-  } else {
-    result.textContent = 'The string is not a palindrome.';
-  }
+function palindrome(str){
+	let s = str.toLowerCase();
+	let strr = s.split('').reverse().join('');
+	// alert(strr);
+	if(s === strr){ 
+		return true;
+	}
+	return false;
 }
 
-function isPalindrome(s) {
-  for (let i = 0; i < s.length / 2; i++) {
-    if (s[i] !== s[s.length - 1 - i]) {
-      return false;
-    }
-  }
-  return true;
-}
+let res = palindrome("Racecar")
+console.log(res);
+
+module.exports = palindrome
